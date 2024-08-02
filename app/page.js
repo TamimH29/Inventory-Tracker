@@ -202,7 +202,7 @@ export default function Home() {
                   </Button>
                   </Stack>
                 </Box>:
-                <Box></Box>
+                <Box key={name}></Box>
               ))
             }
           </Stack>
