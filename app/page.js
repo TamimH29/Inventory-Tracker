@@ -2,7 +2,7 @@
 import Image from "next/image";
 import {useState, useEffect} from 'react'
 import {firestore} from '@/firebase'
-import {Box, Typography, Modal, Stack, TextField, Button} from '@mui/material'
+import {Box, Typography, Modal, Stack, TextField, Button, Container, Grid} from '@mui/material'
 import { collection, getDocs, query, getDoc, doc, deleteDoc, setDoc } from "firebase/firestore";
 
 export default function Home() {
@@ -72,7 +72,7 @@ export default function Home() {
   }, []);
 
   return (
-    <Box 
+    <Grid 
         width="100vw" 
         height="100vh" 
         display="flex" 
@@ -83,11 +83,13 @@ export default function Home() {
         bgcolor="slategrey"
         fontFamily="initial"
     >
-          <Typography 
+
+        <Typography 
+          fullWidth
           variant="h2" 
           bgcolor="#5C4033"
           color="white" 
-          width="800px"
+          width="1000px"
           height = "100px"
           textAlign="center"
           border = "4px solid black"
@@ -131,7 +133,9 @@ export default function Home() {
         </Box>
       </Modal>
       <Box 
-        width="800px" height="100px"
+        width="1000px"
+        fullWidth
+        height="100px"
         bgcolor="lightblue"
         display="flex" 
         justifyContent="center" 
@@ -153,14 +157,14 @@ export default function Home() {
       bgcolor="black"
       >
 
-        <Stack width="800px" height="300px" spacing={0} overflow="auto">
+        <Stack fullWidth height="300px" spacing={0} overflow="auto" gap={0.25}>
             {
               searchItem === "" ?
               inventory.map(({name, quantity})=>(
                 <Box key={name} width="100%" minHeight="50px"
                 display="flex" justifyContent="space-between" alignItems="center"
                 bgcolor="white" p={5}>
-                  <Typography variant="h4">
+                  <Typography variant="h4" maxWidth="300px">
                     {name.charAt(0).toUpperCase() + name.slice(1)}
                   </Typography>
                   <Stack display="flex" flexDirection="row" justifyContent="space-evenly" gap={8}>
@@ -180,11 +184,11 @@ export default function Home() {
                 </Box>
               )):
               inventory.map(({name, quantity})=>(
-                name.startsWith(searchItem)?
+                name.startsWith(searchItem) || name.toLowerCase().startsWith(searchItem)?
                 <Box key={name} width="100%" minHeight="50px"
                 display="flex" justifyContent="space-between" alignItems="center"
                 bgcolor="white" p={5}>
-                  <Typography variant="h4">
+                  <Typography variant="h4" maxWidth="300px">
                     {name.charAt(0).toUpperCase() + name.slice(1)}
                   </Typography>
                   <Stack display="flex" flexDirection="row" justifyContent="space-evenly" gap={8}>
@@ -208,6 +212,6 @@ export default function Home() {
           </Stack>
         </Box>
       </Box>
-    </Box>
+    </Grid>
   );
 }
