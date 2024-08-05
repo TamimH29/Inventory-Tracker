@@ -80,22 +80,31 @@ export default function Home() {
         justifyContent="center" 
         alignItems="center"
         gap={1}
-        bgcolor="slategrey"
+        bgcolor="bisque"
         fontFamily="initial"
     >
 
-        <Typography 
+      <Typography 
           fullWidth
           variant="h2" 
-          bgcolor="#5C4033"
+          bgcolor="black"
           color="white" 
-          width="1000px"
+          width="90vw"
           height = "100px"
           textAlign="center"
-          border = "4px solid black"
+          border = "4px solid gray"
           paddingTop="10px">
             Inventory Items
-          </Typography>
+      </Typography>
+
+      <Box position="absolute" top="2.5%" left="2%" fontSize={20} bgcolor="black" color="white" p={2} borderRadius={2}>
+        Hello World
+      </Box>
+
+      <Box position="absolute" top="2.5%" left="91%" fontSize={20} bgcolor="black" color="white" p={2} borderRadius={2}>
+        Sign Out
+      </Box>
+
     <Box gap={0} border="4px solid black">
       <Modal open={open} onClose={handleClose}>
         <Box
@@ -133,10 +142,10 @@ export default function Home() {
         </Box>
       </Modal>
       <Box 
-        width="1000px"
+        width="90vw"
         fullWidth
         height="100px"
-        bgcolor="lightblue"
+        bgcolor="beige"
         display="flex" 
         justifyContent="center" 
         alignItems="center"
