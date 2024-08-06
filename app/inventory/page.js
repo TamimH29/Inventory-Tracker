@@ -16,7 +16,6 @@ export default function Home() {
   const [itemName, setItemName] = useState("");
   const [searchItem, setSearchItem] = useState("");
   const router = useRouter();
-  const userSession = sessionStorage.getItem('user');
   const userCollection = user? user.email: 'test';
 
   if(!user){
